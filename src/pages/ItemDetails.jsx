@@ -11,7 +11,7 @@ const ItemDetails = () => {
   async function fetchNftItems() {
     const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${id}`)
     setNftItems(data)
-    // setLoading(false)
+    setLoading(false)
   }
   useEffect(() => {
     window.scrollTo(0, 0);
