@@ -76,7 +76,6 @@ const NewItems = () => {
                         <img
                           className="lazyload__img shimmer"
                           src={nftItem.authorImage}
-                          alt=""
                         />
                         <i className="fa fa-check"></i>
                       </Link>
