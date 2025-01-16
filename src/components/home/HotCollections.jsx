@@ -64,7 +64,7 @@ const HotCollections = () => {
             {loading ? (
               <Slider {...sliderSettings}>
                 {new Array(4).fill(0).map((_, index) => (
-                  <div className="nft_coll">
+                  <div className="nft_coll" key={index}>
                     <div className="nft_wrap__skeleton shimmer">
                       <Link to="/item-details">
                         <img className="lazy img-fluid" />
