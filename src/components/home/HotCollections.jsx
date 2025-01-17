@@ -14,7 +14,7 @@ const HotCollections = () => {
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
     );
     setCollection(data);
-    setLoading(false);
+    // setLoading(false);
   }
   useEffect(() => {
     fetchCollections();
@@ -65,15 +65,9 @@ const HotCollections = () => {
               <Slider {...sliderSettings}>
                 {new Array(4).fill(0).map((_, index) => (
                   <div className="nft_coll" key={index}>
-                    <div className="nft_wrap__skeleton shimmer">
-                      <Link to="/item-details">
-                        <img className="lazy img-fluid" />
-                      </Link>
-                    </div>
-                    <div className="nft_coll_pp__skeleton shimmer">
-                      <Link to="/author">
-                        <img className="lazy__skeleton pp-coll" />
-                      </Link>
+                    <div className="nft_wrap__skeleton shimmer"></div>
+                    <div className="nft_coll_pp">
+                      <div className="nft_coll_pp__skeleton shimmer lazy pp-coll" />
                       <i className="fa fa-check"></i>
                     </div>
                     <div className="nft_coll_info">

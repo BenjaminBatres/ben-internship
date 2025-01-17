@@ -14,7 +14,7 @@ const NewItems = () => {
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
     );
     setNftItems(data);
-    setLoading(false);
+    // setLoading(false);
   }
 
   const sliderSettings = {
@@ -63,22 +63,12 @@ const NewItems = () => {
           </div>
           {loading ? (
             <Slider {...sliderSettings}>
-              {new Array(4).fill(0).map((nftItem, index) => (
+              {new Array(4).fill(0).map((_, index) => (
                 <>
                   <div className="nft__item__skeleton shimmer" key={index}>
                     <div className="author_list_pp">
-                      <Link
-                        to="/author"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title={nftItem.title}
-                      >
-                        <img
-                          className="lazyload__img shimmer"
-                          src={nftItem.authorImage}
-                        />
+                        <div className="lazyload__img shimmer"></div>
                         <i className="fa fa-check"></i>
-                      </Link>
                     </div>
 
                     <div className="nft__item_wrap">
