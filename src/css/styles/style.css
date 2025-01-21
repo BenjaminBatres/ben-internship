@@ -16803,7 +16803,12 @@ img {
 .price__skeleton,
 .nft_description__skeleton,
 .nft-image__skeleton,
-.span_price__skeleton {
+.span_price__skeleton,
+.profile_avatar__img,
+.profile_name__skeleton,
+.profile_username__skeleton,
+.profile_wallet__skeleton,
+.profile_follower__skeleton {
   background-color: lightgray ;
 }
 
@@ -16894,4 +16899,26 @@ img {
 .nft-image__skeleton {
   height: 550px;
   width: 550px;
+}
+
+.profile_avatar__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+.profile_name__skeleton {
+  width: 200px;
+  height: 25px;
+}
+
+.profile_username__skeleton {
+  width: 100px;
+  height: 15px;
+  margin: 10px 0;
+}
+
+.profile_follower__skeleton {
+  height: 50px;
+  width: 150px;
 }
