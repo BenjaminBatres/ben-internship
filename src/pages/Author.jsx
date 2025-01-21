@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Author = () => {
@@ -88,16 +88,29 @@ const Author = () => {
                     </div>
                     <div className="profile_follow de-flex">
                       <div className="de-flex-col">
-                        <div className="profile_follower">
-                          {authorData.followers + (isFollowing ? 1 : 0)}{" "}
-                          followers
-                        </div>
-                        <button
-                          onClick={() => setIsFollowing(!isFollowing)}
-                          className="btn-main"
-                        >
-                          Follow
-                        </button>
+                        <>
+                          <div className="profile_follower">
+                            {authorData.followers + (isFollowing ? 1 : 0)}{" "}
+                            followers
+                          </div>
+                          {isFollowing ? (
+                            <Link
+                              to="#"
+                              className="btn-main"
+                              onClick={() => setIsFollowing(!isFollowing)}
+                            >
+                              Unfollow
+                            </Link>
+                          ) : (
+                            <Link
+                              to="#"
+                              className="btn-main"
+                              onClick={() => setIsFollowing(!isFollowing)}
+                            >
+                              Follow
+                            </Link>
+                          )}
+                        </>
                       </div>
                     </div>
                   </div>
