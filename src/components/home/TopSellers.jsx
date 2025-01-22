@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import AOS from "aos";
 
 const TopSellers = () => {
   const [topSeller, setTopSeller] = useState([]);
@@ -14,6 +15,10 @@ const TopSellers = () => {
     setTopSeller(data);
     setLoading(false);
   }
+
+  AOS.init({
+    easing: "ease"
+  })
 
   useEffect(() => {
     fetchTopSellers();
@@ -31,7 +36,7 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             {loading ? (
-              <ol className="author_list">
+              <ol className="author_list" data-aos="fade-in">
                 {new Array(12).fill(0).map((_, index) => (
                   <li key={index}>
                     <div className="author_list_pp">
@@ -45,7 +50,7 @@ const TopSellers = () => {
                 ))}
               </ol>
             ) : (
-              <ol className="author_list">
+              <ol className="author_list" data-aos="fade-in">
                 {topSeller.map((item, index) => (
                   <li key={index}>
                     <div className="author_list_pp">
