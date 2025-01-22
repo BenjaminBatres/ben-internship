@@ -78,7 +78,7 @@ const HotCollections = () => {
                     </div>
                     <div className="nft_coll_info">
                       <Link to="/explore">
-                        <h4 className="author_title__skeleton shimmer"></h4>
+                        <h4 className="title__skeleton shimmer"></h4>
                       </Link>
                       <span className="span__skeleton shimmer"></span>
                     </div>
@@ -90,7 +90,7 @@ const HotCollections = () => {
                 {collection.map((item, index) => (
                   <div className="nft_coll" key={index}>
                     <div className="nft_wrap">
-                      <Link to={`/item-details/${item.nftId}`}>
+                      <Link to="/item-details">
                         <img
                           src={item.nftImage}
                           className="lazy img-fluid"
