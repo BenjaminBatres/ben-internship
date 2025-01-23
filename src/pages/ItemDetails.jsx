@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
 
 const ItemDetails = () => {
   const { id } = useParams()
-   const [nftItems, setNftItems] = useState("")
+  const [nftItems, setNftItems] = useState("")
+  const [loading, setLoading] = useState(true);
 
   async function fetchNftItems() {
     const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${id}`)
     setNftItems(data)
+    setLoading(false)
   }
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchNftItems()
+    fetchNftItems();
   }, []);
 
   return (
@@ -24,6 +25,63 @@ const ItemDetails = () => {
         <section aria-label="section" className="mt90 sm-mt-0">
           <div className="container">
             <div className="row">
+            {loading ? (
+              <>
+              <div className="col-md-6 text-center">
+                <div className="nft-image__skeleton shimmer"></div>
+              </div>
+              <div className="col-md-6">
+                <div className="item_info">
+                  <h2 className="nft_title__skeleton shimmer"></h2>
+
+                  <div className="item_info_counts">
+                    <div className="item_info_views__skeleton shimmer"></div>
+                    <div className="item_info_like__skeleton shimmer"></div>
+                  </div>
+                  <p className="nft_description__skeleton shimmer"></p>
+                  <div className="d-flex flex-row">
+                    <div className="mr40">
+                      <h6>Owner</h6>
+                      <div className="item_author">
+                        <div className="author_list_pp">     
+                            <div className="lazyload__img shimmer"></div>
+                            <i className="fa fa-check"></i>
+                        </div>
+                        <div className="author_list_info">
+                          <div className="title__skeleton shimmer"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div></div>
+                  </div>
+                  <div className="de_tab tab_simple">
+                    <div className="de_tab_content">
+                      <h6>Creator</h6>
+                      <div className="item_author">
+                        <div className="author_list_pp">
+                          <div className="lazyload__img shimmer"></div>
+                            <i className="fa fa-check"></i>
+                        </div>
+                        <div className="author_list_info">
+                          <div className="title__skeleton shimmer"></div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div className="spacer-40"></div>
+                    <h6>Price</h6>
+                    <div className="nft-item-price">
+                      <img src={EthImage} alt="" />
+                      <span className="price__skeleton shimmer"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              </>
+
+            ) : (
+              <>
               <div className="col-md-6 text-center">
                 <img
                   src={nftItems.nftImage}
@@ -89,6 +147,9 @@ const ItemDetails = () => {
                   </div>
                 </div>
               </div>
+              
+              </>
+            )}
             </div>
           </div>
         </section>
