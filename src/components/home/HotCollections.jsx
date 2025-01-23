@@ -59,6 +59,7 @@ const HotCollections = () => {
   });
 
   return (
+    // FROM MAIN!!!
     <section id="section-collections" className="no-bottom">
       <div className="container">
         <div className="row ">
