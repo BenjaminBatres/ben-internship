@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import Slider from "react-slick";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HotCollections = () => {
   // Did this work?
@@ -51,17 +53,23 @@ const HotCollections = () => {
     ],
   };
 
+  AOS.init({
+    easing: "ease",
+    duration: 800,
+    delay: 800,
+  });
+
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
         <div className="row ">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-in">
               <h2>Hot Collection</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="slider-container">
+          <div className="slider-container" data-aos="fade-in">
             {loading ? (
               <Slider {...sliderSettings}>
                 {new Array(4).fill(0).map((_, index) => (
