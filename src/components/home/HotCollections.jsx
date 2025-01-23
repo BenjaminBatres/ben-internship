@@ -6,6 +6,7 @@ import axios from "axios";
 import Slider from "react-slick";
 
 const HotCollections = () => {
+  // HotCollection
   const [collection, setCollection] = useState([]);
   const [loading, setLoading] = useState(true);
 
